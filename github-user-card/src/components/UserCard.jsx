@@ -2,12 +2,16 @@ import React from 'react'
 
 function UserCard(props){
     return (
-        <div className = 'userCard'>
-            <img src='{props.avatarUrl}' alt='avatar'/>
+        <div className = 'UserCard'>
+            <div className='imgContainer'>
+            <img src={props.avatarUrl} alt='avatar'/>
+            </div>
+            <div className='textContainer'>
             <h4>{props.login}</h4>
-            <p>{props.location}</p>
-            <p>{props.followers}</p>
-            <p>{props.following}</p>
+            <p>Profile: {props.profile}</p>
+            <p>Followers: {props.followers}</p>
+            <p>Following: {props.following}</p>
+            </div>
         </div>
     )
 }

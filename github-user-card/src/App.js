@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios'
 
 import UserCard from './components/UserCard'
+import FollowerCard from './components/FollowerCard'
 
 import './App.css';
 
@@ -11,9 +12,9 @@ class App extends React.Component {
     this.state = {
       login: [],
       avatarUrl: [],
-      location: [],
       followers: [],
-      following: []
+      following: [],
+      profile: []
   }
   }
 
@@ -24,7 +25,7 @@ class App extends React.Component {
         this.setState({
           login: res.data.login,
           avatarUrl: res.data.avatar_url,
-          location: res.data.location,
+          profile: res.data.html_url,
           followers: res.data.followers,
           following: res.data.following,
         })
@@ -42,11 +43,14 @@ class App extends React.Component {
       <div>
         <UserCard
           login={this.state.login}
-          avatar={this.state.avatarUrl}
-          location={this.state.location}
+          avatarUrl={this.state.avatarUrl}
+          profile={this.state.profile}
           followers={this.state.followers}
           following={this.state.following}
         />
+      </div>
+      <div>
+        <FollowerCard/>
       </div>
     </div>
   );
